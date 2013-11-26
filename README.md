@@ -1,4 +1,6 @@
-cpm-spire-testing
+cpm-batch-testing
 =================
 
-An unregistered CPM module holding various resources for testing Spire based modules.
+An CPM module holding various resources for batch testing OpenGL and Spire
+based modules.
+
