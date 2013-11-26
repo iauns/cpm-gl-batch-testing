@@ -63,13 +63,13 @@ BatchEnvironment::BatchEnvironment(uint32_t width, uint32_t height,
     throw std::runtime_error("Unable to allocate space for image.");
   }
 
-  // This should be a wrapped in a shared_ptr -- RAII.
-  mContext = CPM_GL_BATCH_CONTEXT_NS::Context::createBatchContext(
-      width, height,
-      static_cast<uint8_t>(colorBits),
-      static_cast<uint8_t>(depthBits),
-      static_cast<uint8_t>(stencilBits),
-      doubleBuffer, visible);
+  mContext = std::shared_ptr<CPM_GL_BATCH_CONTEXT_NS::Context>(
+      CPM_GL_BATCH_CONTEXT_NS::Context::createBatchContext(
+          width, height,
+          static_cast<uint8_t>(colorBits),
+          static_cast<uint8_t>(depthBits),
+          static_cast<uint8_t>(stencilBits),
+          doubleBuffer, visible));
   mContext->makeCurrent();
 
   GL(glViewport(0, 0, static_cast<GLsizei>(width), static_cast<GLsizei>(height)));
@@ -99,8 +99,6 @@ BatchEnvironment::BatchEnvironment(uint32_t width, uint32_t height,
   GL(glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT, GL_DEPTH_ATTACHMENT_EXT,
                                   GL_RENDERBUFFER_EXT, mGLDepthBuffer));
 
-  mContext->makeCurrent();
-  GL(glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, mGLFrameBuffer));
   if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
   {
     std::cout << "Frame buffer index: " << mGLFrameBuffer << std::endl;
@@ -113,11 +111,6 @@ BatchEnvironment::BatchEnvironment(uint32_t width, uint32_t height,
 //------------------------------------------------------------------------------
 BatchEnvironment::~BatchEnvironment()
 {
-  if (mContext)
-  {
-    delete mContext;
-    mContext = NULL;
-  }
 }
 
 //------------------------------------------------------------------------------

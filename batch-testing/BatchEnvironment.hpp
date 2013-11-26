@@ -70,7 +70,7 @@ private:
   int mHeight;
 
   /// We aren't supporting c++11, so we don't use a shared ptr here.
-  CPM_GL_BATCH_CONTEXT_NS::Context* mContext;
+  std::shared_ptr<CPM_GL_BATCH_CONTEXT_NS::Context> mContext;
 
   /// Pre-allocated image data. The memory we use to pull image data
   /// from OpenGL.
