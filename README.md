@@ -1,4 +1,4 @@
-cpm-gl-batch-testing
-====================
+cpm-spire-testing
+=================
 
-Utilities for batch testing OpenGL rendering code
+An unregistered CPM module holding various resources for testing Spire based modules.
