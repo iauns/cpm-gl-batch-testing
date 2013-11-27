@@ -60,16 +60,6 @@ CPM_AddModule("lodepng"
   GIT_REPOSITORY "https://github.com/iauns/cpm-lodepng.git"
   GIT_TAG "1.0.0")
 
-# Re-export the GLM module. We expose spire through our public interfaces,
-# we also need to expose its module exports (CPM TODO).
-# ++ MODULE: GLM
-CPM_AddModule("GLM"
-  GIT_REPOSITORY "https://github.com/iauns/cpm-glm"
-  GIT_TAG "origin/master"
-  USE_EXISTING_VER TRUE
-  EXPORT_MODULE TRUE    # Use EXPORT_MODULE sparingly. We expose GLM's interface
-  )                     # through our own interface hence why we export it.
-
 CPM_InitModule(${CPM_MODULE_NAME})
 
 #-----------------------------------------------------------------------
