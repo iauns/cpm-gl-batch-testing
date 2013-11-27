@@ -124,8 +124,14 @@ if (UNIX)
   endif()
 endif()
 
+# Make sure we don't link against OpenGL libraries if using OSMesa
+if (USE_OS_MESA)
+  set(OPENGL_LIBRARIES)
+endif()
+
 add_executable(batch-testing ${Sources})
 target_link_libraries(batch-testing
   ${CPM_LIBRARIES}
+  ${OPENGL_LIBRARIES}
   ${PTHREADS})
 
