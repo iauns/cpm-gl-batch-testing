@@ -4,38 +4,16 @@
 
 #include "SpireTestFixture.hpp"
 
+#include <spire/src/FileUtil.h>
+#include <spire/src/GLMathUtil.h>
 
 namespace CPM_GL_BATCH_TESTING_NS {
-
-//------------------------------------------------------------------------------
-SpireContext::SpireContext(std::shared_ptr<BatchEnvironment> env) :
-    mEnv(env)
-{ }
-
-//------------------------------------------------------------------------------
-void SpireContext::makeCurrent()
-{
-  mEnv->makeCurrent();
-}
-
-//------------------------------------------------------------------------------
-void SpireContext::swapBuffers()
-{
-  mEnv->swapBuffers();
-}
-
-
-
-//------------------------------------------------------------------------------
-// SpireTestFixture implementation
-//------------------------------------------------------------------------------
-
 
 //------------------------------------------------------------------------------
 void SpireTestFixture::SetUp()
 {
   // Build spire using the context from GlobalTestEnvironment.
-  std::shared_ptr<CPM_GL_BATCH_ENV_NS::BatchEnvironment> ctx 
+  std::shared_ptr<BatchEnvironment> ctx 
       = GlobalTestEnvironment::instance()->getBatchEnvironment();
   ctx->makeCurrent();
 
@@ -90,6 +68,64 @@ void SpireTestFixture::beginFrame()
 
   CPM_SPIRE_NS::GPUState defaultGPUState;
   mSpire->applyGPUState(defaultGPUState, true); // true = force application of state.
+}
+
+//------------------------------------------------------------------------------
+void SpireTestFixture::compareFBOWithExistingFile(
+    const std::string& filename,
+    const std::string& outputDir,
+    const std::string& compareDir,
+    const std::string& binary,
+    int pixelThreshold)
+{
+  // Print out the frame and compare it.
+  std::string imageName = filename;
+
+  std::string targetImage = outputDir;
+  targetImage += "/" + imageName;
+  GlobalTestEnvironment::instance()->getBatchEnvironment()->writeFBO(targetImage);
+
+  EXPECT_TRUE(CPM_SPIRE_NS::fileExists(targetImage)) << "Failed to write output image! " << targetImage;
+
+  // Perform the perceptual comparison using the given regression directory.
+  std::string compImage = compareDir;
+  compImage += "/" + imageName;
+
+  ASSERT_TRUE(CPM_SPIRE_NS::fileExists(compImage)) << "Failed to find comparison image! " << compImage;
+  // Test using perceptual comparison program that the user has provided
+  // (hopefully).
+  std::stringstream ss;
+  ss << binary << " -threshold " << pixelThreshold << " " << targetImage << " " << compImage;
+  std::string command = ss.str();
+
+  // Usually the return code of std::system is implementation specific. But the
+  // majority of systems end up returning the exit code of the program.
+  if (std::system(command.c_str()) != 0)
+  {
+    // The images are NOT the same. Alert the user.
+    FAIL() << "Perceptual compare of " << imageName << " failed.";
+  }
+}
+
+//------------------------------------------------------------------------------
+// SpireContext implementation
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+SpireContext::SpireContext(std::shared_ptr<BatchEnvironment> env) :
+    mEnv(env)
+{ }
+
+//------------------------------------------------------------------------------
+void SpireContext::makeCurrent()
+{
+  mEnv->makeCurrent();
+}
+
+//------------------------------------------------------------------------------
+void SpireContext::swapBuffers()
+{
+  mEnv->swapBuffers();
 }
 
 } // namespace CPM_GL_BATCH_TESTING_NS

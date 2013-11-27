@@ -1,7 +1,7 @@
 /// \author James Hughes
 /// \date   November 2013
 
-#include "GlobalTestEnvironment.hpp"
+#include "GlobalGTestEnv.hpp"
 #include "BatchEnvironment.hpp"
 
 namespace CPM_GL_BATCH_TESTING_NS {

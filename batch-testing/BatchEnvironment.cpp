@@ -180,5 +180,5 @@ void BatchEnvironment::writeFBO(const std::string& file)
   }
 }
 
-} // namespace CPM_GL_BATCH_ENV_NS 
+} // namespace CPM_GL_BATCH_TESTING_NS 
 

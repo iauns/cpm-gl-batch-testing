@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 #-----------------------------------------------------------------------
 # CPM configuration
 #-----------------------------------------------------------------------
-set(CPM_MODULE_NAME spire_testing)
+set(CPM_MODULE_NAME gl_batch_testing)
 set(CPM_LIB_TARGET_NAME ${CPM_MODULE_NAME})
 
 if ((DEFINED CPM_DIR) AND (DEFINED CPM_UNIQUE_ID) AND (DEFINED CPM_TARGET_NAME))
@@ -41,7 +41,8 @@ CPM_AddModule("google_test"
 # ++ MODULE: Spire
 CPM_AddModule("spire"
   GIT_REPOSITORY "https://github.com/SCIInstitute/spire"
-  GIT_TAG "origin/dev")
+  GIT_TAG "origin/master"
+  EXPORT_MODULE TRUE)
 
 # ++ MODULE: GL Batch Context
 CPM_AddModule("gl_batch_context"
@@ -68,8 +69,8 @@ CPM_InitModule(${CPM_MODULE_NAME})
 # Globbing has some downsides, but the advantages outweigh the
 # disadvantages.
 file (GLOB Sources
-  "spire-testing/*.cpp"
-  "spire-testing/*.h"
+  "batch-testing/*.cpp"
+  "batch-testing/*.h"
   )
 
 #-----------------------------------------------------------------------
@@ -77,7 +78,7 @@ file (GLOB Sources
 #-----------------------------------------------------------------------
 
 # Build the library.
-add_library(${CPM_LIB_TARGET_NAME} ${Sources} ${SpecificSources})
+add_library(${CPM_LIB_TARGET_NAME} ${Sources})
 target_link_libraries(${CPM_LIB_TARGET_NAME} 
   ${OS_SPECIFIC_LIBS} 
   ${CPM_LIBRARIES})
