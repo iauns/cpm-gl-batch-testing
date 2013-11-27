@@ -38,7 +38,7 @@
 #include <gl-batch-context/Context.hpp>
 #include <lodepng/lodepng.h>
 
-namespace CPM_GL_BATCH_ENV_NS {
+namespace CPM_GL_BATCH_TESTING_NS {
 
 //------------------------------------------------------------------------------
 BatchEnvironment::BatchEnvironment(uint32_t width, uint32_t height,

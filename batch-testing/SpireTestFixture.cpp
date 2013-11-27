@@ -5,8 +5,10 @@
 #include "SpireTestFixture.hpp"
 
 
+namespace CPM_GL_BATCH_TESTING_NS {
+
 //------------------------------------------------------------------------------
-SpireContext::SpireContext(std::shared_ptr<CPM_GL_BATCH_ENV_NS::BatchEnvironment> env) :
+SpireContext::SpireContext(std::shared_ptr<BatchEnvironment> env) :
     mEnv(env)
 { }
 
@@ -90,4 +92,5 @@ void SpireTestFixture::beginFrame()
   mSpire->applyGPUState(defaultGPUState, true); // true = force application of state.
 }
 
+} // namespace CPM_GL_BATCH_TESTING_NS
 

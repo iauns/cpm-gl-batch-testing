@@ -42,7 +42,7 @@ namespace CPM_GL_BATCH_CONTEXT_NS {
 class Context;
 }
 
-namespace CPM_GL_BATCH_ENV_NS {
+namespace CPM_GL_BATCH_TESTING_NS {
 
 /// OpenGL batch rendering environment.
 class BatchEnvironment
