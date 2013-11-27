@@ -8,7 +8,7 @@
 // SpireTestFixture. Necessary because of gtest's macros.
 using namespace CPM_BATCH_TESTING_NS;
 
-TEST_F(SpireTestFixture, TestQuadRotation)
+TEST_F(SpireTestFixture, BasicQuad)
 {
   // Test various functions in Object and ObjectPass.
   std::vector<float> vboData = 
