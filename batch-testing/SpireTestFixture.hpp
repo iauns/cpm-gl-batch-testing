@@ -5,6 +5,7 @@
 #ifndef IAUNS_SPIREFIXTURE_HPP
 #define IAUNS_SPIREFIXTURE_HPP
 
+#include <memory>
 #include <gtest/gtest.h>
 #include <spire/Interface.h>
 
