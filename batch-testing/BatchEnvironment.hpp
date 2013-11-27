@@ -35,6 +35,7 @@
 #include <stdint.h>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "gl-platform/GLPlatform.hpp"
 
