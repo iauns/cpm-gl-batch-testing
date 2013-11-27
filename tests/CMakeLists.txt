@@ -41,11 +41,6 @@ include(${CPM_DIR}/CPM.cmake)
 CPM_AddModule("batch_testing"
   SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 
-# ++ MODULE: Spire
-CPM_AddModule("spire"
-  GIT_REPOSITORY "https://github.com/SCIInstitute/spire"
-  GIT_TAG "origin/master")
-
 # ++ EXTERNAL-MODULE: Google Test
 CPM_AddModule("google_test"
   GIT_REPOSITORY "https://github.com/iauns/cpm-google-test"
