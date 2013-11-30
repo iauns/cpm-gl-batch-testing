@@ -42,7 +42,8 @@ CPM_AddModule("google_test"
 CPM_AddModule("spire"
   GIT_REPOSITORY "https://github.com/SCIInstitute/spire"
   GIT_TAG "origin/master"
-  EXPORT_MODULE TRUE)
+  EXPORT_MODULE TRUE
+  USE_EXISTING_VER TRUE)
 
 # ++ MODULE: GL Batch Context
 CPM_AddModule("gl_batch_context"
