@@ -53,8 +53,9 @@ CPM_AddModule("gl_batch_context"
 # ++ MODULE: GL Platform
 CPM_AddModule("gl_platform"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
-  GIT_TAG "1.1.0"
-  EXPORT_MODULE TRUE)
+  GIT_TAG "1.1.1"
+  EXPORT_MODULE TRUE
+  USE_EXISTING_VER TRUE)
 
 # ++ EXTERNAL-MODULE: Lodepng
 CPM_AddModule("lodepng"
