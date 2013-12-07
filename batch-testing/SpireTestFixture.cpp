@@ -66,6 +66,7 @@ void SpireTestFixture::beginFrame()
   GL(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
   GL(glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT));
 
+  /// \xxx GPUState will be removed in future versions of spire!
   CPM_SPIRE_NS::GPUState defaultGPUState;
   mSpire->applyGPUState(defaultGPUState, true); // true = force application of state.
 }
