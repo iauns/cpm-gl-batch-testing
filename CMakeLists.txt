@@ -48,12 +48,12 @@ CPM_AddModule("spire"
 # ++ MODULE: GL Batch Context
 CPM_AddModule("gl_batch_context"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-batch-context.git"
-  GIT_TAG "1.1.1")
+  GIT_TAG "1.2.0")
 
 # ++ MODULE: GL Platform
 CPM_AddModule("gl_platform"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
-  GIT_TAG "1.1.1"
+  GIT_TAG "1.2.0"
   EXPORT_MODULE TRUE
   USE_EXISTING_VER TRUE)
 
