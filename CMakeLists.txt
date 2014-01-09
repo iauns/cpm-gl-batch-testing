@@ -45,17 +45,17 @@ CPM_AddModule("spire"
   EXPORT_MODULE TRUE
   USE_EXISTING_VER TRUE)
 
-# ++ MODULE: GL Batch Context
-CPM_AddModule("gl_batch_context"
-  GIT_REPOSITORY "https://github.com/iauns/cpm-gl-batch-context.git"
-  GIT_TAG "1.2.2")
-
 # ++ MODULE: GL Platform
 CPM_AddModule("gl_platform"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
   GIT_TAG "1.3.4"
   EXPORT_MODULE TRUE
   USE_EXISTING_VER TRUE)
+
+# ++ MODULE: GL Batch Context
+CPM_AddModule("gl_batch_context"
+  GIT_REPOSITORY "https://github.com/iauns/cpm-gl-batch-context.git"
+  GIT_TAG "1.2.2")
 
 # ++ EXTERNAL-MODULE: Lodepng
 CPM_AddModule("lodepng"
