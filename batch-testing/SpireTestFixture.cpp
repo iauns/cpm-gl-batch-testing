@@ -6,6 +6,7 @@
 
 #include <spire/src/FileUtil.h>
 #include <spire/src/GLMathUtil.h>
+#include <gl-state/GLState.hpp>
 
 namespace CPM_GL_BATCH_TESTING_NS {
 
@@ -66,9 +67,8 @@ void SpireTestFixture::beginFrame()
   GL(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
   GL(glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT));
 
-  /// \xxx GPUState will be removed in future versions of spire!
-  CPM_SPIRE_NS::GPUState defaultGPUState;
-  mSpire->applyGPUState(defaultGPUState, true); // true = force application of state.
+  CPM_GL_STATE_NS::GLState defaultGLState;
+  defaultGLState.apply();
 }
 
 //------------------------------------------------------------------------------

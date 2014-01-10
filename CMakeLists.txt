@@ -57,6 +57,11 @@ CPM_AddModule("gl_batch_context"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-batch-context.git"
   GIT_TAG "1.2.2")
 
+# ++ MODULE: GL State
+CPM_AddModule("gl_state"
+  GIT_REPOSITORY "https://github.com/iauns/cpm-gl-state.git"
+  GIT_TAG "1.0.0")
+
 # ++ EXTERNAL-MODULE: Lodepng
 CPM_AddModule("lodepng"
   GIT_REPOSITORY "https://github.com/iauns/cpm-lodepng.git"
