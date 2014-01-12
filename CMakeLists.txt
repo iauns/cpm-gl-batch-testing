@@ -34,7 +34,7 @@ CPM_ForceOnlyOneModuleVersion()
 # ++ EXTERNAL-MODULE: Google Test
 CPM_AddModule("google_test"
   GIT_REPOSITORY "https://github.com/iauns/cpm-google-test"
-  GIT_TAG "1.0.1"
+  GIT_TAG "1.0.2"
   EXPORT_MODULE TRUE
   USE_EXISTING_VER TRUE)
 
@@ -65,7 +65,7 @@ CPM_AddModule("gl_state"
 # ++ EXTERNAL-MODULE: Lodepng
 CPM_AddModule("lodepng"
   GIT_REPOSITORY "https://github.com/iauns/cpm-lodepng.git"
-  GIT_TAG "1.0.0")
+  GIT_TAG "1.0.1")
 
 CPM_InitModule(${CPM_MODULE_NAME})
 
