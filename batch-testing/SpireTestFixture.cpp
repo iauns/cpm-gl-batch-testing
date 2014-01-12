@@ -72,6 +72,12 @@ void SpireTestFixture::beginFrame()
 }
 
 //------------------------------------------------------------------------------
+void SpireTestFixture::endFrame()
+{
+  mSpireContext->swapBuffers();
+}
+
+//------------------------------------------------------------------------------
 void SpireTestFixture::compareFBOWithExistingFile(
     const std::string& filename,
     const std::string& outputDir,

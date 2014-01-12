@@ -25,6 +25,7 @@ public:
   virtual void TearDown() override;
 
   void beginFrame();
+  void endFrame();
 
   /// Compares the active frame buffer's contents with that given in
   /// 'filename'. This function expects that 'binary' points to the
