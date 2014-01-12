@@ -69,44 +69,45 @@
 <a name="l00025"></a>00025   <span class="keyword">virtual</span> <span class="keywordtype">void</span> TearDown() <span class="keyword">override</span>;
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027   <span class="keywordtype">void</span> <a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_test_fixture.html#a41008e7968299cb0a4d55408f92f8209">beginFrame</a>();
-<a name="l00028"></a>00028 
-<a name="l00039"></a>00039   <span class="keywordtype">void</span> <a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_test_fixture.html#a00bbbb5187bba7f23ee4fa970dd0d246">compareFBOWithExistingFile</a>(
-<a name="l00040"></a>00040     <span class="keyword">const</span> std::string&amp; filename,
-<a name="l00041"></a>00041     <span class="keyword">const</span> std::string&amp; outputDir,
-<a name="l00042"></a>00042     <span class="keyword">const</span> std::string&amp; compareDir,
-<a name="l00043"></a>00043     <span class="keyword">const</span> std::string&amp; binary,
-<a name="l00044"></a>00044     <span class="keywordtype">int</span> pixelThreshold);
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046   std::shared_ptr&lt;CPM_SPIRE_NS::Interface&gt;    mSpire;
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 <span class="keyword">private</span>:
-<a name="l00049"></a>00049   <span class="keywordtype">void</span> addDefaultAttributes();
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051   std::shared_ptr&lt;SpireContext&gt;         mSpireContext;
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="comment">// Helper class deriving from spire&#39;s context. Spire&#39;s context is being used</span>
-<a name="l00055"></a>00055 <span class="comment">// as an interface in this regard.</span>
-<a name="l00056"></a><a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_context.html">00056</a> <span class="keyword">class </span><a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_context.html">SpireContext</a> : <span class="keyword">public</span> CPM_SPIRE_NS::Context
-<a name="l00057"></a>00057 {
-<a name="l00058"></a>00058 <span class="keyword">public</span>:
-<a name="l00059"></a>00059   <a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_context.html">SpireContext</a>(std::shared_ptr&lt;BatchEnvironment&gt; env);
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061   <span class="keywordtype">void</span> makeCurrent() <span class="keyword">override</span>;
-<a name="l00062"></a>00062   <span class="keywordtype">void</span> swapBuffers() <span class="keyword">override</span>;
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="keyword">private</span>:
-<a name="l00065"></a>00065   std::shared_ptr&lt;BatchEnvironment&gt; mEnv;
-<a name="l00066"></a>00066 };
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 } <span class="comment">// namespace CPM_GL_BATCH_TESTING_NS</span>
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 <span class="preprocessor">#endif </span>
+<a name="l00028"></a>00028   <span class="keywordtype">void</span> endFrame();
+<a name="l00029"></a>00029 
+<a name="l00040"></a>00040   <span class="keywordtype">void</span> <a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_test_fixture.html#a00bbbb5187bba7f23ee4fa970dd0d246">compareFBOWithExistingFile</a>(
+<a name="l00041"></a>00041     <span class="keyword">const</span> std::string&amp; filename,
+<a name="l00042"></a>00042     <span class="keyword">const</span> std::string&amp; outputDir,
+<a name="l00043"></a>00043     <span class="keyword">const</span> std::string&amp; compareDir,
+<a name="l00044"></a>00044     <span class="keyword">const</span> std::string&amp; binary,
+<a name="l00045"></a>00045     <span class="keywordtype">int</span> pixelThreshold);
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047   std::shared_ptr&lt;CPM_SPIRE_NS::Interface&gt;    mSpire;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="keyword">private</span>:
+<a name="l00050"></a>00050   <span class="keywordtype">void</span> addDefaultAttributes();
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052   std::shared_ptr&lt;SpireContext&gt;         mSpireContext;
+<a name="l00053"></a>00053 };
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="comment">// Helper class deriving from spire&#39;s context. Spire&#39;s context is being used</span>
+<a name="l00056"></a>00056 <span class="comment">// as an interface in this regard.</span>
+<a name="l00057"></a><a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_context.html">00057</a> <span class="keyword">class </span><a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_context.html">SpireContext</a> : <span class="keyword">public</span> CPM_SPIRE_NS::Context
+<a name="l00058"></a>00058 {
+<a name="l00059"></a>00059 <span class="keyword">public</span>:
+<a name="l00060"></a>00060   <a class="code" href="class_c_p_m___g_l___b_a_t_c_h___t_e_s_t_i_n_g___n_s_1_1_spire_context.html">SpireContext</a>(std::shared_ptr&lt;BatchEnvironment&gt; env);
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062   <span class="keywordtype">void</span> makeCurrent() <span class="keyword">override</span>;
+<a name="l00063"></a>00063   <span class="keywordtype">void</span> swapBuffers() <span class="keyword">override</span>;
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="keyword">private</span>:
+<a name="l00066"></a>00066   std::shared_ptr&lt;BatchEnvironment&gt; mEnv;
+<a name="l00067"></a>00067 };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 } <span class="comment">// namespace CPM_GL_BATCH_TESTING_NS</span>
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="preprocessor">#endif </span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 10 2014 01:42:57 for GL Batch Testing Support by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 12 2014 18:06:19 for GL Batch Testing Support by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
