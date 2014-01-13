@@ -48,19 +48,19 @@ CPM_AddModule("spire"
 # ++ MODULE: GL Platform
 CPM_AddModule("gl_platform"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-platform.git"
-  GIT_TAG "1.3.4"
+  GIT_TAG "1.3.5"
   EXPORT_MODULE TRUE
   USE_EXISTING_VER TRUE)
 
 # ++ MODULE: GL Batch Context
 CPM_AddModule("gl_batch_context"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-batch-context.git"
-  GIT_TAG "1.2.2")
+  GIT_TAG "1.2.3")
 
 # ++ MODULE: GL State
 CPM_AddModule("gl_state"
   GIT_REPOSITORY "https://github.com/iauns/cpm-gl-state.git"
-  GIT_TAG "1.0.0")
+  GIT_TAG "1.0.1")
 
 # ++ EXTERNAL-MODULE: Lodepng
 CPM_AddModule("lodepng"
